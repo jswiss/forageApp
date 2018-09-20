@@ -9,7 +9,9 @@ const config = require(__dirname + '/../config/config.js');
 // const config = JSON.stringify(configuration);
 const db = {};
 
-const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(
+	process.NODE_ENV === 'development' ? config.development : config.production
+);
 
 // let sequelize;
 // if (config.use_env_variable) {
